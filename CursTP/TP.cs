@@ -10,6 +10,7 @@ namespace CursTP
 {
     public class TP
     {
+        // вводим наши переменные: координаты телеортов, радиус частиц
         public int X; 
         public int Y;
         public int Rad = 50; 
@@ -18,13 +19,13 @@ namespace CursTP
         public float OTP = 0; 
         public float OS = 5;
 
-        public void ImpactParticle(PRTC particle)
+        public void ImpactParticle(PRTC particle) // "сердце" нашего телепорта (отправка партиклов)
         {
             float gX = X - particle.X;
             float gY = Y - particle.Y;
 
             double r = Math.Sqrt(gX * gX + gY * gY); 
-            if (r + particle.Rad < Rad / 2) // наш телепорт
+            if (r + particle.Rad < Rad / 2)
             {
                 particle.X = OX + -gX;
                 particle.Y = OY + -gY;

@@ -10,11 +10,12 @@ namespace CursTP
 {
     public class EMM
     {
-        public List<PRTC> prtc = new List<PRTC>();
+        public List<PRTC> prtc = new List<PRTC>(); // создаём список частиц
         public TP tel = new TP();
         public float GX = 0;
         public float GY = 1;
 
+        // вводим наши переменные как в 2 других классах
         public int X; 
         public int Y; 
         public int TPP = 0;
@@ -28,11 +29,12 @@ namespace CursTP
         public int VALUE1 = 1;
         public int VALUE2 = 10;
 
+        // цвета наших частиц
         public Color TP1 = Color.Blue;
         public Color TP2 = Color.FromArgb(0, Color.Purple);
 
 
-        public void UpdateState()
+        public void UpdateState() // проверка на количество "жизней" наших частиц
         {
             int particlesToCreate = VALUE1;
 
@@ -69,16 +71,14 @@ namespace CursTP
             }
         }
 
-        public virtual void ResetParticle(PRTC particle)
+        public virtual void ResetParticle(PRTC particle) // обновление поля частиц
         {
             particle.Life = PRTC.rand.Next(LifeMIN, LifeMAX);
 
             particle.X = X;
             particle.Y = Y;
 
-            var tp = TPP
-                + (double)PRTC.rand.Next(RAZ)
-                - RAZ / 2;
+            var tp = TPP+ (double)PRTC.rand.Next(RAZ)- RAZ / 2;
 
             var speed = PRTC.rand.Next(SMIN, SMAX);
 

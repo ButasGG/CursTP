@@ -10,7 +10,8 @@ namespace CursTP
 {
     public class PRTC
     {
-        public int Rad;
+        // вводим наши переменные: радиус, координаты 1 и 2 телепорта, жизни частиц и генератор случайных чисел
+        public int Rad; 
         public float X;
         public float Y;
         public float SX;
@@ -38,6 +39,7 @@ namespace CursTP
             b.Dispose();
         }
     }
+
     public class ParticleColorful : PRTC
     {
         public Color FTP;
@@ -45,12 +47,7 @@ namespace CursTP
 
         public static Color Mix(Color color1, Color color2, float f)
         {
-            return Color.FromArgb(
-                (int)(color2.A * f + color1.A * (1 - f)),
-                (int)(color2.R * f + color1.R * (1 - f)),
-                (int)(color2.G * f + color1.G * (1 - f)),
-                (int)(color2.B * f + color1.B * (1 - f))
-            );
+            return Color.FromArgb((int)(color2.A * f + color1.A * (1 - f)),(int)(color2.R * f + color1.R * (1 - f)),(int)(color2.G * f + color1.G * (1 - f)),(int)(color2.B * f + color1.B * (1 - f)));
         }
 
         public override void Draw(Graphics g)
